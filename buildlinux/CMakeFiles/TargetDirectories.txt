@@ -1,3 +1,0 @@
-/mnt/hgfs/OpenPlatfom/OpenPlatformPublic/buildlinux/CMakeFiles/rebuild_cache.dir
-/mnt/hgfs/OpenPlatfom/OpenPlatformPublic/buildlinux/CMakeFiles/OpenPlatform.dir
-/mnt/hgfs/OpenPlatfom/OpenPlatformPublic/buildlinux/CMakeFiles/edit_cache.dir
