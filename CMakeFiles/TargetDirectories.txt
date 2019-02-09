@@ -1,0 +1,3 @@
+C:/doc/Visual Studio 2017/Projects/OpenPlatfom/OpenPlatformPublic/CMakeFiles/OpenPlatformx64.dir
+C:/doc/Visual Studio 2017/Projects/OpenPlatfom/OpenPlatformPublic/CMakeFiles/ALL_BUILD.dir
+C:/doc/Visual Studio 2017/Projects/OpenPlatfom/OpenPlatformPublic/CMakeFiles/ZERO_CHECK.dir

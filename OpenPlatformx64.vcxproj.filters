@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\doc\Visual Studio 2017\Projects\OpenPlatfom\OpenPlatformPublic\OpenPlatform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\doc\Visual Studio 2017\Projects\OpenPlatfom\OpenPlatformPublic\OpenPlatform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\doc\Visual Studio 2017\Projects\OpenPlatfom\OpenPlatformPublic\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E9E4ED92-EB35-3EDF-A570-9A7EEA1C2546}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{FA7C7E04-4948-3403-B76B-4CBD924D9DC7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
