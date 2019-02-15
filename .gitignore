@@ -261,3 +261,6 @@ __pycache__/
 *.pyc
 /build/CMakeFiles
 /build
+/build32
+/buildlinux
+/OpenPlatform (No platform).zip
