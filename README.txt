@@ -23,3 +23,4 @@ A: Yes, but keep in mind that it has been tested ONLY on Windows & linux.
 
 Q:Donation?
 A: Patreon : https://www.patreon.com/GK4EVER
+   Paypal : https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VMJUTD5MRX2R6&source=url
