@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.10)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 project(OpenPlatform)
 
-file(GLOB OPEN_PLATFORM_INCLUDES "*h")
+file(GLOB OPEN_PLATFORM_INCLUDES "*.h")
 file(GLOB OPEN_PLATFORM_SOURCES "*.cpp")
 
 source_group("Header Files" FILES ${OPEN_PLATFORM_INCLUDES})
@@ -10,6 +10,8 @@ source_group("Source Files" FILES ${OPEN_PLATFORM_SOURCES})
 #include_directories ("") #If you want additional include directories uncomment this
 	
 if (MSVC)
+	file(GLOB OPEN_PLATFORM_RC "resource/*.*")
+	source_group("Resource Files" FILES ${OPEN_PLATFORM_RC})
 	if(NOT SET_UP_CONFIGURATIONS_DONE)
 		set(SET_UP_CONFIGURATIONS_DONE 1)
 		if(CMAKE_CONFIGURATION_TYPES) 
@@ -41,7 +43,7 @@ if (MSVC)
 	else()
 		set(Target_Name ${NAME}x86)
 	endif()
-	add_library("${Target_Name}" SHARED ${OPEN_PLATFORM_INCLUDES} ${OPEN_PLATFORM_SOURCES})
+	add_library("${Target_Name}" SHARED ${OPEN_PLATFORM_INCLUDES} ${OPEN_PLATFORM_SOURCES} ${OPEN_PLATFORM_RC})
 	target_link_libraries(${Target_Name} ${Additional_LIBRARIES})
 else()
 
