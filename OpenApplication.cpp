@@ -40,11 +40,11 @@ private:
 	OpenAppLocal(bool apiEnabled);
 	bool apiEnabled;
 	static OpenAppLocal* instance;
-	static std::mutex mutex;
+	static std::mutex appMutex;
 };
 
 OpenAppLocal* OpenAppLocal::instance = nullptr;
-std::mutex OpenAppLocal::mutex;
+std::mutex OpenAppLocal::appMutex;
 
 const char* OpenAppLocal::GetLocale()
 {
@@ -64,7 +64,7 @@ bool OpenAppLocal::GetCloudStats(unsigned long long* totalBytes, unsigned long l
 OpenApp* OpenAppLocal::getInstance(bool apiEnabled)
 {
 	if (instance == nullptr) {
-		std::lock_guard<std::mutex> lock(mutex);
+		std::lock_guard<std::mutex> lock(appMutex);
 		if (instance == nullptr) {
 			instance = new OpenAppLocal(apiEnabled);
 		}

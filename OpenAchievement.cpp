@@ -25,12 +25,12 @@ private:
 	}
 	OpenAchievementLocal(bool apiEnabled);
 	static OpenAchievementLocal* instance;
-	static mutex mutex;
+	static mutex achMutex;
 	bool apiEnabled;
 };
 
 OpenAchievementLocal* OpenAchievementLocal::instance = nullptr;
-mutex OpenAchievementLocal::mutex;
+mutex OpenAchievementLocal::achMutex;
 
 OpenAchievementLocal::OpenAchievementLocal(bool apiEnabled) {
 	this->apiEnabled = apiEnabled;

@@ -32,6 +32,7 @@ public:
 	virtual int CountDLCs() = 0;
 	virtual OpenContent GetDLCByIndex(int index) = 0;
 	virtual bool HasDLC(const char* id) = 0;
+	virtual void installDLC(const char* id) = 0;
 };
 
 OpenDLC* getDLCInstance(bool apiEnabled);
