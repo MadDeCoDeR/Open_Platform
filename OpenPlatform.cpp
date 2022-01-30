@@ -42,6 +42,8 @@ public:
 	virtual void SetNotificationsPosition(unsigned int x, unsigned int y);
 	virtual unsigned long long CreateLobby(int type, int maxplayers);
 	virtual bool SetAdditionalInfo(const char* key, const char* value);
+	virtual bool IsPortable();
+	virtual bool ShowFloatingTextBox(int type, int xpos, int ypos, int width, int height);
 private:
 	bool apiEnabled;
 };
@@ -98,6 +100,16 @@ void OPlatformLocal::SetNotificationsPosition(unsigned int x, unsigned int y) {}
 unsigned long long OPlatformLocal::CreateLobby(int type, int maxplayers) { return 0; }
 
 bool OPlatformLocal::SetAdditionalInfo(const char* key, const char* value)
+{
+	return false;
+}
+
+bool OPlatformLocal::IsPortable()
+{
+	return false;
+}
+
+bool OPlatformLocal::ShowFloatingTextBox(int type, int xpos, int ypos, int width, int height)
 {
 	return false;
 }
