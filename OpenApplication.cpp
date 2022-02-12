@@ -25,7 +25,7 @@ SOFTWARE.
 
 class OpenAppLocal : public OpenApp {
 	virtual const char* GetLocale();
-	virtual const char* GetBranch();
+	virtual bool GetBranch(char* name);
 	virtual bool GetCloudStats(unsigned long long* totalBytes, unsigned long long* availableBytes);
 public:
 	static OpenApp* getInstance(bool apiEnabled);
@@ -51,9 +51,9 @@ const char* OpenAppLocal::GetLocale()
 	return "";
 }
 
-const char* OpenAppLocal::GetBranch()
+bool OpenAppLocal::GetBranch(char* name)
 {
-	return "";
+	return false;
 }
 
 bool OpenAppLocal::GetCloudStats(unsigned long long* totalBytes, unsigned long long* availableBytes)
