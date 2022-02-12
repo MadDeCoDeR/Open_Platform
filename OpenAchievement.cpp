@@ -79,7 +79,7 @@ bool OpenAchievementLocal::GetAchievementHidden(const char* name)
 OpenAchievement* OpenAchievementLocal::getInstance(bool apiEnabled)
 {
 	if (instance == nullptr) {
-		lock_guard<std::mutex> lock(mutex);
+		lock_guard<std::mutex> lock(achMutex);
 		if (instance == nullptr) {
 			instance = new OpenAchievementLocal(apiEnabled);
 		}
