@@ -44,6 +44,10 @@ public:
 	virtual bool SetAdditionalInfo(const char* key, const char* value);
 	virtual bool IsPortable();
 	virtual bool ShowFloatingTextBox(int type, int xpos, int ypos, int width, int height);
+public:
+	OPlatformLocal() {
+		apiEnabled = false;
+	}
 private:
 	bool apiEnabled;
 };

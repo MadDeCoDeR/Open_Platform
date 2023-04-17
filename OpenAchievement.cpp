@@ -15,26 +15,14 @@ class OpenAchievementLocal : public OpenAchievement {
 	virtual bool GetAchievementHidden(const char* name);
 public:
 	static OpenAchievement* getInstance(bool apiEnabled);
-	OpenAchievementLocal(OpenAchievement const&) = delete;
-	OpenAchievementLocal(OpenAchievementLocal const&) = delete;
-	void operator=(OpenAchievement const&) = delete;
-	void operator=(OpenAchievementLocal const&) = delete;
-private:
 	OpenAchievementLocal() {
-		this->apiEnabled = false;
+		apiEnabled = false;
 	}
-	OpenAchievementLocal(bool apiEnabled);
-	static OpenAchievementLocal* instance;
-	static mutex achMutex;
+private:
 	bool apiEnabled;
 };
 
-OpenAchievementLocal* OpenAchievementLocal::instance = nullptr;
-mutex OpenAchievementLocal::achMutex;
-
-OpenAchievementLocal::OpenAchievementLocal(bool apiEnabled) {
-	this->apiEnabled = apiEnabled;
-}
+OpenAchievementLocal instance;
 
 bool OpenAchievementLocal::GetAchievement(const char* name, bool* status)
 {
@@ -78,13 +66,8 @@ bool OpenAchievementLocal::GetAchievementHidden(const char* name)
 
 OpenAchievement* OpenAchievementLocal::getInstance(bool apiEnabled)
 {
-	if (instance == nullptr) {
-		lock_guard<std::mutex> lock(achMutex);
-		if (instance == nullptr) {
-			instance = new OpenAchievementLocal(apiEnabled);
-		}
-	}
-	return instance;
+	instance.apiEnabled = apiEnabled;
+	return &instance;
 }
 
 OpenAchievement* getAchievementInstance(bool apiEnabled)

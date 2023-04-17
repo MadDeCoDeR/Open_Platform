@@ -30,22 +30,14 @@ class OpenDLCLocal : public OpenDLC {
 	virtual void installDLC(const char* id);
 public:
 	static OpenDLC* getInstance(bool apiEnabled);
-	OpenDLCLocal(OpenDLC const&) = delete;
-	OpenDLCLocal(OpenDLCLocal const&) = delete;
-	void operator=(OpenDLC const&) = delete;
-	void operator=(OpenDLCLocal const&) = delete;
-private:
 	OpenDLCLocal() {
-		this->apiEnabled = false;
+		apiEnabled = false;
 	}
-	OpenDLCLocal(bool apiEnabled);
+private:
 	bool apiEnabled;
-	static OpenDLCLocal* instance;
-	static std::mutex dlcMutex;
 };
 
-OpenDLCLocal* OpenDLCLocal::instance = nullptr;
-std::mutex OpenDLCLocal::dlcMutex;
+OpenDLCLocal instance;
 
 int OpenDLCLocal::CountDLCs()
 {
@@ -68,18 +60,8 @@ void OpenDLCLocal::installDLC(const char* id) {
 
 OpenDLC* OpenDLCLocal::getInstance(bool apiEnabled)
 {
-	if (instance == nullptr) {
-		std::lock_guard<std::mutex> lock(dlcMutex);
-		if (instance == nullptr) {
-			instance = new OpenDLCLocal(apiEnabled);
-		}
-	}
-	return instance;
-}
-
-OpenDLCLocal::OpenDLCLocal(bool apiEnabled)
-{
-	this->apiEnabled = apiEnabled;
+	instance.apiEnabled = apiEnabled;
+	return &instance;
 }
 
 OpenDLC* getDLCInstance(bool apiEnabled)
