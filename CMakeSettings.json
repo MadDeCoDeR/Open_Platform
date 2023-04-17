@@ -13,7 +13,7 @@
     {
       "name": "VS2022-x86",
       "generator": "Visual Studio 17 2022",
-      "buildRoot": "${projectDir}\\build",
+      "buildRoot": "${projectDir}\\build32",
       "installRoot": "${projectDir}\\install",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
