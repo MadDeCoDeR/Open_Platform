@@ -29,24 +29,28 @@ SOFTWARE.
 class OPlatformLocal : public OPlatform
 {
 public:
+	virtual const char* API_Name();
 	virtual bool API_Init();
 	virtual bool API_Init(const char* data);
 	virtual void API_Shutdown();
+	virtual OpenAchievement* openAchievement();
+	virtual OpenDLC* openDLC();
+	virtual OpenApp* openApp();
 	virtual const char* GetPlatformUserName();
-	virtual bool GetAchievement(const char* name, bool* status);
-	virtual const char* GetAchievementDevName(unsigned int id);
-	virtual bool GetAchievementPercent(const char* name, unsigned int progress, unsigned int max);
-	virtual bool UnlockAchievement(const char* name);
-	virtual bool LockAchievement(const char* name);
-	virtual const char* GetAchievementName(const char* name);
-	virtual const char* GetAchievementDescription(const char* name);
-	virtual bool GetAchievementHidden(const char* name);
 	virtual void ShowUser( unsigned int id);
-	virtual bool isPlatformOverlayActive();
+	virtual bool API_pump();
 	virtual void SetNotificationsPosition(unsigned int x, unsigned int y);
 	virtual unsigned long long CreateLobby(int type, int maxplayers);
-	virtual bool GetCloudStats(unsigned long long* totalBytes, unsigned long long* availableBytes);
 	virtual bool SetAdditionalInfo(const char* key, const char* value);
+	virtual bool IsPortable();
+	virtual unsigned char GetBatteryLevel();
+	virtual bool ShowFloatingTextBox(int type, int xpos, int ypos, int width, int height);
+public:
+	OPlatformLocal() {
+		apiEnabled = false;
+	}
+private:
+	bool apiEnabled;
 };
 
 OPlatformLocal opl;
@@ -71,31 +75,51 @@ extern "C" OPlatform* GetPlatformAPI()
 
 OPlatform* op = &opl;
 
+const char* OPlatformLocal::API_Name()
+{
+	return "no_platform";
+}
+
 bool OPlatformLocal::API_Init() { return false; }
 bool OPlatformLocal::API_Init(const char* data)
 {
 	return false;
 }
 void  OPlatformLocal::API_Shutdown() {}
+OpenAchievement* OPlatformLocal::openAchievement()
+{
+	return getAchievementInstance(apiEnabled);
+}
+OpenDLC* OPlatformLocal::openDLC()
+{
+	return getDLCInstance(apiEnabled);
+}
+OpenApp* OPlatformLocal::openApp()
+{
+	return getAppInstance(apiEnabled);
+}
 const char* OPlatformLocal::GetPlatformUserName() { return ""; }
-bool OPlatformLocal::GetAchievement(const char* name, bool* status) { return false; }
-const char* OPlatformLocal::GetAchievementDevName(unsigned int id) { return ""; }
-bool OPlatformLocal::GetAchievementPercent(const char* name, unsigned int progress, unsigned int max) { return false; }
-bool OPlatformLocal::UnlockAchievement(const char* name) { return false; }
-bool OPlatformLocal::LockAchievement(const char* name) { return false; }
-const char* OPlatformLocal::GetAchievementName(const char* name) { return ""; }
-const char* OPlatformLocal::GetAchievementDescription(const char* name) { return ""; }
-bool OPlatformLocal::GetAchievementHidden(const char* name) { return false; }
 void OPlatformLocal::ShowUser( unsigned int id) {}
-bool OPlatformLocal::isPlatformOverlayActive() { return false; }
+bool OPlatformLocal::API_pump() { return false; }
 void OPlatformLocal::SetNotificationsPosition(unsigned int x, unsigned int y) {}
 unsigned long long OPlatformLocal::CreateLobby(int type, int maxplayers) { return 0; }
-bool OPlatformLocal::GetCloudStats(unsigned long long* totalBytes, unsigned long long* availableBytes)
+
+bool OPlatformLocal::SetAdditionalInfo(const char* key, const char* value)
 {
 	return false;
 }
 
-bool OPlatformLocal::SetAdditionalInfo(const char* key, const char* value)
+bool OPlatformLocal::IsPortable()
+{
+	return false;
+}
+
+unsigned char OPlatformLocal::GetBatteryLevel()
+{
+	return 0;
+}
+
+bool OPlatformLocal::ShowFloatingTextBox(int type, int xpos, int ypos, int width, int height)
 {
 	return false;
 }
