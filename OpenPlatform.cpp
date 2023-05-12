@@ -43,6 +43,7 @@ public:
 	virtual unsigned long long CreateLobby(int type, int maxplayers);
 	virtual bool SetAdditionalInfo(const char* key, const char* value);
 	virtual bool IsPortable();
+	virtual unsigned char GetBatteryLevel();
 	virtual bool ShowFloatingTextBox(int type, int xpos, int ypos, int width, int height);
 public:
 	OPlatformLocal() {
@@ -111,6 +112,11 @@ bool OPlatformLocal::SetAdditionalInfo(const char* key, const char* value)
 bool OPlatformLocal::IsPortable()
 {
 	return false;
+}
+
+unsigned char OPlatformLocal::GetBatteryLevel()
+{
+	return 0;
 }
 
 bool OPlatformLocal::ShowFloatingTextBox(int type, int xpos, int ypos, int width, int height)
