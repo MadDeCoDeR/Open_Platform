@@ -36,7 +36,7 @@ private:
 	bool apiEnabled;
 };
 
-OpenAppLocal instance;
+OpenAppLocal appinstance;
 
 const char* OpenAppLocal::GetLocale()
 {
@@ -55,8 +55,8 @@ bool OpenAppLocal::GetCloudStats(unsigned long long* totalBytes, unsigned long l
 
 OpenApp* OpenAppLocal::getInstance(bool apiEnabled)
 {
-	instance.apiEnabled = apiEnabled;
-	return &instance;
+	appinstance.apiEnabled = apiEnabled;
+	return &appinstance;
 }
 
 OpenApp* getAppInstance(bool apiEnabled)

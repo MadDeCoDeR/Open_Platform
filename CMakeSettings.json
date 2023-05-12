@@ -19,6 +19,18 @@
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "msvc_x86" ]
+    },
+    {
+      "name": "Linux-x64",
+      "generator": "Unix Makefiles",
+      "buildRoot": "${projectDir}\\buildLinux",
+      "installRoot": "${projectDir}\\install",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "wslPath": "${defaultWSLPath}",
+      "cmakeExecutable": "cmake"
     }
   ]
 }

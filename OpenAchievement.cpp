@@ -22,7 +22,7 @@ private:
 	bool apiEnabled;
 };
 
-OpenAchievementLocal instance;
+OpenAchievementLocal achinstance;
 
 bool OpenAchievementLocal::GetAchievement(const char* name, bool* status)
 {
@@ -66,8 +66,8 @@ bool OpenAchievementLocal::GetAchievementHidden(const char* name)
 
 OpenAchievement* OpenAchievementLocal::getInstance(bool apiEnabled)
 {
-	instance.apiEnabled = apiEnabled;
-	return &instance;
+	achinstance.apiEnabled = apiEnabled;
+	return &achinstance;
 }
 
 OpenAchievement* getAchievementInstance(bool apiEnabled)
