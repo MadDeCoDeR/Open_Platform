@@ -30,7 +30,8 @@
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "linux_x64" ],
       "wslPath": "${defaultWSLPath}",
-      "cmakeExecutable": "cmake"
+      "cmakeExecutable": "cmake",
+      "configurationType": "Release"
     }
   ]
 }
