@@ -36,6 +36,7 @@ public:
 	virtual OpenAchievement* openAchievement();
 	virtual OpenDLC* openDLC();
 	virtual OpenApp* openApp();
+	virtual OpenInput* openInput();
 	virtual const char* GetPlatformUserName();
 	virtual void ShowUser( unsigned int id);
 	virtual bool API_pump();
@@ -97,6 +98,10 @@ OpenDLC* OPlatformLocal::openDLC()
 OpenApp* OPlatformLocal::openApp()
 {
 	return getAppInstance(apiEnabled);
+}
+OpenInput* OPlatformLocal::openInput()
+{
+	return getInputInstance(apiEnabled);
 }
 const char* OPlatformLocal::GetPlatformUserName() { return ""; }
 void OPlatformLocal::ShowUser( unsigned int id) {}
