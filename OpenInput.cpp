@@ -24,6 +24,9 @@ SOFTWARE.
 
 class OpenInputLocal : public OpenInput {
 	virtual void ChangeControllerConfiguration(const char* configName, int controllerIndex);
+	virtual void RegisterInputConfigurationFile(const char* path);
+	virtual bool Start();
+	virtual bool Stop();
 public:
 	static OpenInput* getInstance(bool apiEnabled);
 	OpenInputLocal() {
@@ -38,6 +41,20 @@ OpenInputLocal inputInstance;
 
 void OpenInputLocal::ChangeControllerConfiguration(const char* configName, int controllerIndex)
 {
+}
+
+void OpenInputLocal::RegisterInputConfigurationFile(const char* path)
+{
+}
+
+bool OpenInputLocal::Start()
+{
+	return false;
+}
+
+bool OpenInputLocal::Stop()
+{
+	return false;
 }
 
 OpenInput* OpenInputLocal::getInstance(bool apiEnabled)
