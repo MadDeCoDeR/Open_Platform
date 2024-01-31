@@ -37,11 +37,11 @@ public:
 	virtual OpenDLC* openDLC();
 	virtual OpenApp* openApp();
 	virtual OpenInput* openInput();
+	virtual OpenMultiplayer* openMultiplayer();
 	virtual const char* GetPlatformUserName();
 	virtual void ShowUser( unsigned int id);
 	virtual bool API_pump();
 	virtual void SetNotificationsPosition(unsigned int x, unsigned int y);
-	virtual unsigned long long CreateLobby(int type, int maxplayers);
 	virtual bool SetAdditionalInfo(const char* key, const char* value);
 	virtual bool IsPortable();
 	virtual unsigned char GetBatteryLevel();
@@ -103,11 +103,14 @@ OpenInput* OPlatformLocal::openInput()
 {
 	return getInputInstance(apiEnabled);
 }
+OpenMultiplayer* OPlatformLocal::openMultiplayer()
+{
+	return getMultiplayerInstance(apiEnabled);
+}
 const char* OPlatformLocal::GetPlatformUserName() { return ""; }
 void OPlatformLocal::ShowUser( unsigned int id) {}
 bool OPlatformLocal::API_pump() { return false; }
 void OPlatformLocal::SetNotificationsPosition(unsigned int x, unsigned int y) {}
-unsigned long long OPlatformLocal::CreateLobby(int type, int maxplayers) { return 0; }
 
 bool OPlatformLocal::SetAdditionalInfo(const char* key, const char* value)
 {
