@@ -29,8 +29,9 @@ class OpenMultiplayerLocal : public OpenMultiplayer {
 	virtual void JoinLobby(unsigned long long id);
 	virtual void LeaveLobby();
 	virtual bool SendPacket(unsigned long long userId, const void* data, unsigned int size);
-	virtual bool hasAvailablePackets(int* size);
-	virtual bool ReadPacket(void* data, int size, int* receivedSize, unsigned  long long* userId);
+	virtual bool hasAvailablePackets(unsigned int* size);
+	virtual bool ReadPacket(void* data, int size, unsigned int* receivedSize, unsigned  long long* userId);
+	virtual bool CloseConnection(unsigned long long userId);
 public:
 	static OpenMultiplayer* getInstance(bool apiEnabled);
 	OpenMultiplayerLocal() {
@@ -80,12 +81,17 @@ bool OpenMultiplayerLocal::SendPacket(unsigned long long userId, const void* dat
 	return false;
 }
 
-bool OpenMultiplayerLocal::hasAvailablePackets(int* size)
+bool OpenMultiplayerLocal::hasAvailablePackets(unsigned int* size)
 {
 	return false;
 }
 
-bool OpenMultiplayerLocal::ReadPacket(void* data, int size, int* receivedSize, unsigned long long* userId)
+bool OpenMultiplayerLocal::ReadPacket(void* data, int size, unsigned int* receivedSize, unsigned long long* userId)
+{
+	return false;
+}
+
+bool OpenMultiplayerLocal::CloseConnection(unsigned long long userId)
 {
 	return false;
 }

@@ -30,8 +30,9 @@ public:
 	virtual void JoinLobby(unsigned long long id) = 0;
 	virtual void LeaveLobby() = 0;
 	virtual bool SendPacket(unsigned long long userId, const void* data, unsigned int size) = 0;
-	virtual bool hasAvailablePackets(int* size) = 0;
-	virtual bool ReadPacket(void* data, int size, int* receivedSize, unsigned  long long* userId) = 0;
+	virtual bool hasAvailablePackets(unsigned int* size) = 0;
+	virtual bool ReadPacket(void* data, int size, unsigned int* receivedSize, unsigned  long long* userId) = 0;
+	virtual bool CloseConnection(unsigned long long userId) = 0;
 };
 
 OpenMultiplayer* getMultiplayerInstance(bool apiEnabled);
