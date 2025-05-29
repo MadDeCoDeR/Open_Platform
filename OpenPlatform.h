@@ -90,4 +90,6 @@ extern OPlatform* op;
 
 extern "C" {
 	typedef OPlatform* (*GetPlatformAPI_t)();
+	extern OPlatform* GetPlatformAPI();
 }
+
